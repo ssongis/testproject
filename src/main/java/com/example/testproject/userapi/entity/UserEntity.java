@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "usertest")
 public class UserEntity {
-
     @Id
     @Column(name = "user_id")
     @GeneratedValue(generator = "system-uuid") // 유일한 ID값을 얻기 위해

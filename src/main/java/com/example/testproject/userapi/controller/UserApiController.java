@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/users/api")
 public class UserApiController {
-
     private final UserService userService;
 
+    // 회원 가입 POST
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Validated @RequestBody UserSignUpDTO userSignUpDTO){
         log.info("/users/api/signup POST! - {}", userSignUpDTO);
