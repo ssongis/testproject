@@ -16,11 +16,9 @@ public class UserSignUpDTO {
     @NotBlank
     @Email
     private String email;
-
     @NotBlank
     @Size(min=4, max=20)
     private String password;
-
     @NotBlank
     @Size(min=2,max=5)
     private String nickName;
