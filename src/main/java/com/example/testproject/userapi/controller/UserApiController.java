@@ -22,9 +22,20 @@ public class UserApiController {
     public ResponseEntity<?> signup(@Validated @RequestBody UserSignUpDTO userSignUpDTO){
         log.info("/users/api/signup POST! - {}", userSignUpDTO);
 
-        UserSignUpResponseDTO responseDTO = userService.create(userSignUpDTO);
-        return ResponseEntity
+//        UserSignUpResponseDTO responseDTO = userService.create(userSignUpDTO);
+//        return ResponseEntity
+//                    .ok()
+//                    .body(responseDTO);
+        try {
+            UserSignUpResponseDTO responseDTO = userService.create(userSignUpDTO);
+            return ResponseEntity
                     .ok()
                     .body(responseDTO);
+        }catch (RuntimeException e) {
+            log.warn("중복되었습니다. 이메일을 다시 작성해주세요.");
+            return ResponseEntity
+                    .badRequest()
+                    .body(e.getMessage());
+        }
     }
 }
