@@ -16,8 +16,6 @@ public class UserService {
     // 회원가입 처리
     public UserSignUpResponseDTO create(final UserSignUpDTO userSignUpDTO){ //UserSignUpResponseDTO로 리턴
 
-        final String email = userSignUpDTO.getEmail(); // 회원가입한 email 정보 조회
-
         // 엔터티로 변환한 값 저장
         UserEntity savedUser = userRepository.save(userSignUpDTO.toEntity());
         log.info("회원 가입 성공!! - user_id : {}",savedUser.getId());

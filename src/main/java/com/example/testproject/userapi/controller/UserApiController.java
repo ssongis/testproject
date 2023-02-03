@@ -19,13 +19,12 @@ public class UserApiController {
     private final UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signup(@RequestBody UserSignUpDTO signUpDTO){
-        log.info("/users/api/signup POST! - {}", signUpDTO);
+    public ResponseEntity<?> signup(@Validated @RequestBody UserSignUpDTO userSignUpDTO){
+        log.info("/users/api/signup POST! - {}", userSignUpDTO);
 
-        UserSignUpResponseDTO responseDTO = userService.create(signUpDTO);
-            return ResponseEntity
+        UserSignUpResponseDTO responseDTO = userService.create(userSignUpDTO);
+        return ResponseEntity
                     .ok()
                     .body(responseDTO);
     }
-
 }

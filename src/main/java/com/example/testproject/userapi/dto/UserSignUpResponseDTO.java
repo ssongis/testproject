@@ -6,9 +6,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Setter
-@Getter
-@ToString
+@Setter @Getter @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "email")

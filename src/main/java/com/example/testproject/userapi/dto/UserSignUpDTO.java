@@ -18,7 +18,7 @@ public class UserSignUpDTO {
     private String email;
 
     @NotBlank
-    @Size(min=8, max=20)
+    @Size(min=4, max=20)
     private String password;
 
     @NotBlank
@@ -26,10 +26,10 @@ public class UserSignUpDTO {
     private String nickName;
 
     public UserEntity toEntity(){
-        return UserEntity.builder()
-                .email(this.email)
-                .password(this.password)
-                .nickName(this.nickName)
-                .build();
+        UserEntity user = new UserEntity();
+        user.setEmail(this.email);
+        user.setPassword(this.password);
+        user.setNickName(this.nickName);
+        return user;
     }
 }
